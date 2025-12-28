@@ -3,69 +3,375 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Service - TipMana</title>
+  <meta name="color-scheme" content="light dark" />
+  <title>Tipmana – Terms of Service</title>
+  <meta name="description" content="Tipmana Terms of Service" />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 40px; line-height: 1.6; }
-    main { max-width: 860px; }
-    h1,h2 { line-height: 1.25; }
-    .muted { color:#666; }
-    a { color: inherit; }
-    code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+    :root{
+      --bg: #0b0c10;
+      --card: #11131a;
+      --text: #e8eaf0;
+      --muted: #b7bccb;
+      --line: rgba(255,255,255,.12);
+      --link: #8ab4ff;
+      --accent: #fbbf24;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 920px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --card:#ffffff;
+        --text:#111827;
+        --muted:#4b5563;
+        --line: rgba(17,24,39,.12);
+        --link:#1d4ed8;
+        --accent:#b45309;
+        --shadow: 0 10px 30px rgba(17,24,39,.08);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: radial-gradient(1100px 600px at 15% -10%, rgba(138,180,255,.18), transparent 60%),
+                  radial-gradient(900px 520px at 95% 0%, rgba(251,191,36,.16), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    header{ padding: 40px 16px 18px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; }
+
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    h1{
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+      letter-spacing: -0.02em;
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      margin-top:10px;
+      color: var(--muted);
+      font-size:.95rem;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(251,191,36,.16);
+    }
+
+    main{ padding: 0 16px 48px; }
+    .layout{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+    @media (min-width: 980px){
+      .layout{ grid-template-columns: 280px 1fr; align-items:start; }
+      .toc{ position: sticky; top: 16px; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .toc h2{
+      margin:0 0 10px;
+      font-size:1.05rem;
+      letter-spacing:-0.01em;
+    }
+    .toc ol{ margin:0; padding-left:18px; }
+    .toc li{ margin:6px 0; color: var(--muted); }
+    .toc a{ color: inherit; }
+    .toc a:hover{ color: var(--text); }
+
+    article h2{
+      margin: 26px 0 8px;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      scroll-margin-top: 18px;
+    }
+    article h3{
+      margin: 18px 0 8px;
+      font-size: 1.08rem;
+      scroll-margin-top: 18px;
+    }
+    article p{ margin: 10px 0; }
+    article ul{ margin: 8px 0 12px; padding-left: 20px; }
+    article li{ margin: 6px 0; }
+    .label{ font-weight: 700; }
+    .hr{
+      height: 1px;
+      background: var(--line);
+      margin: 16px 0;
+      border: 0;
+    }
+    .toplink{
+      font-family: var(--mono);
+      font-size: .9rem;
+      opacity: .9;
+    }
+
+    footer{
+      padding: 22px 16px 42px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    @media print{
+      body{ background:#fff; color:#000; }
+      .hero, .card{ box-shadow:none; }
+      .toc{ display:none; }
+      a{ color:#000; text-decoration: underline; }
+    }
   </style>
 </head>
+
 <body>
+  <header id="top">
+    <div class="wrap">
+      <div class="hero" role="banner" aria-label="Terms of Service Header">
+        <h1>Tipmana – Terms of Service</h1>
+        <div class="meta">
+          <span class="pill"><span class="dot" aria-hidden="true"></span><span><strong>Last updated:</strong> December 28, 2025</span></span>
+          <span class="pill"><span><strong>Eligibility:</strong> 18+ (U.S.-only)</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <p><a href="./index.html">← Back to Legal Home</a></p>
+    <div class="wrap layout">
+      <nav class="card toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#s1">1. Eligibility (18+ and U.S.-Only)</a></li>
+          <li><a href="#s2">2. The Service and Acceptable Use</a></li>
+          <li><a href="#s3">3. Accounts and Security</a></li>
+          <li><a href="#s4">4. User Content</a></li>
+          <li><a href="#s5">5. Prohibited Conduct</a></li>
+          <li><a href="#s6">6. Intellectual Property</a></li>
+          <li><a href="#s7">7. Privacy</a></li>
+          <li><a href="#s8">8. Third-Party Services and Advertising</a></li>
+          <li><a href="#s9">9. Disclaimers</a></li>
+          <li><a href="#s10">10. Limitation of Liability</a></li>
+          <li><a href="#s11">11. Indemnification</a></li>
+          <li><a href="#s12">12. Changes to the Service or Terms</a></li>
+          <li><a href="#s13">13. Termination</a></li>
+          <li><a href="#s14">14. Account and Data Deletion</a></li>
+          <li><a href="#s15">15. Governing Law and Venue</a></li>
+          <li><a href="#s16">16. Contact Us</a></li>
+        </ol>
+      </nav>
 
-    <h1>Terms of Service</h1>
-    <p class="muted">Last updated: <strong>REPLACE_DATE</strong></p>
+      <article class="card" aria-label="Terms of Service Text">
+        <p>Welcome to Tipmana (“Tipmana,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of the Tipmana mobile application and any related services (collectively, the “Service”).</p>
+        <p>By creating an account, accessing, or using the Service, you agree to be bound by these Terms. If you disagree, you may not use the Service.</p>
 
-    <p>
-      These Terms of Service (“Terms”) govern your use of the TipMana mobile application (the “App”).
-      By using the App, you agree to these Terms.
-    </p>
+        <hr class="hr" />
 
-    <h2>Eligibility</h2>
-    <p>You must be at least 13 years old (or the minimum age required in your country) to use the App.</p>
+        <h2 id="s1">1. Eligibility (18+ and U.S.-Only)</h2>
+        <p>You may use the Service only if:</p>
+        <ul>
+          <li>You are 18 years of age or older; and</li>
+          <li>You have the legal capacity to enter into a binding agreement; and</li>
+          <li>You are located in the United States (the Service is offered only to U.S. users).</li>
+        </ul>
+        <p>If you use the Service on behalf of a company or other entity, you represent that you are authorized to bind that entity to these Terms, and “you” refers to that entity.</p>
 
-    <h2>Your Account</h2>
-    <ul>
-      <li>You are responsible for keeping your account secure.</li>
-      <li>You must provide accurate information where required.</li>
-      <li>We may suspend or terminate accounts that violate these Terms.</li>
-    </ul>
+        <h2 id="s2">2. The Service and Acceptable Use</h2>
+        <p>Tipmana helps users view and share tipping experiences and related commentary about businesses.</p>
+        <p>You agree to:</p>
+        <ul>
+          <li>Use the Service only for lawful purposes and in compliance with these Terms and applicable laws;</li>
+          <li>Provide accurate information when creating an account and submitting content;</li>
+          <li>Not interfere with, damage, disrupt, or attempt to gain unauthorized access to the Service, accounts, or systems.</li>
+        </ul>
+        <p>We may change, suspend, or discontinue all or part of the Service at any time, and may impose limits on certain features or access as permitted by law.</p>
 
-    <h2>User Content</h2>
-    <ul>
-      <li>You retain ownership of content you submit (comments/ratings/etc.).</li>
-      <li>You grant us a license to host, display, and distribute your content as needed to operate the App.</li>
-      <li>You agree not to post illegal, harassing, hateful, or infringing content.</li>
-    </ul>
+        <h2 id="s3">3. Accounts and Security</h2>
+        <p>Certain features require an account. You may be able to sign in using:</p>
+        <ul>
+          <li>Email and password,</li>
+          <li>A third-party sign-in provider (such as Google), and/or</li>
+          <li>Anonymous/guest access, if available.</li>
+        </ul>
+        <p>You are responsible for:</p>
+        <ul>
+          <li>Maintaining the confidentiality of your credentials and device access;</li>
+          <li>All activity that occurs under your account.</li>
+        </ul>
+        <p>Do not share your account or allow others to use it. If you believe your account is compromised, you must notify us promptly and take steps to secure your account (for example, changing your password or revoking sessions where available).</p>
 
-    <h2>Acceptable Use</h2>
-    <p>You agree not to misuse the App, including attempting to break security, scrape data, or spam content.</p>
+        <h2 id="s4">4. User Content</h2>
 
-    <h2>Disclaimers</h2>
-    <p class="muted">
-      The App is provided “as is” without warranties of any kind. We do not guarantee accuracy of user-submitted content.
-    </p>
+        <h3>4.1 What “User Content” Means</h3>
+        <p>“User Content” means content you submit through the Service, including subjects, comments, quick tags, ratings, tip levels, optional tip percentages, and other text or data you provide.</p>
 
-    <h2>Limitation of Liability</h2>
-    <p class="muted">
-      To the maximum extent permitted by law, TipMana is not liable for indirect or consequential damages arising from your use of the App.
-    </p>
+        <h3>4.2 Ownership and License</h3>
+        <p>You retain ownership of your User Content. However, by submitting User Content, you grant Tipmana a worldwide, non-exclusive, royalty-free license to host, store, reproduce, display, publish (within the Service), and distribute your User Content as necessary to operate, provide, maintain, and improve the Service, including for moderation, safety, analytics, and technical processing.</p>
+        <p>This license includes the right to make technical modifications (for example, formatting, resizing, or adapting content for different devices and interfaces) and to allow our service providers to process User Content on our behalf solely to provide services to us (for example, hosting, databases, analytics, and customer support).</p>
 
-    <h2>Changes</h2>
-    <p>We may update these Terms from time to time. Continued use of the App means you accept the updated Terms.</p>
+        <h3>4.3 Public Nature and “Anonymous” Posts</h3>
+        <p>You understand that:</p>
+        <ul>
+          <li>User Content may be visible to other users.</li>
+          <li>If you post “anonymously,” we may hide your display name from other users, but your content may still be associated with your account internally for integrity, anti-abuse, and enforcement purposes.</li>
+          <li>We cannot control what other users do with content they can view (including copying or sharing it).</li>
+        </ul>
 
-    <h2>Contact</h2>
-    <p>Questions? Contact us at: <strong>REPLACE_CONTACT_EMAIL</strong></p>
+        <h3>4.4 Your Responsibilities</h3>
+        <p>You are solely responsible for your User Content and represent that you have the rights needed to submit it. You agree not to submit content that:</p>
+        <ul>
+          <li>Is false, misleading, deceptive, or intended to manipulate or harm others;</li>
+          <li>Is harassing, hateful, defamatory, obscene, or otherwise unlawful;</li>
+          <li>Violates privacy or publicity rights (including posting someone else’s personal information);</li>
+          <li>Infringes intellectual property rights;</li>
+          <li>Contains malware, spam, or harmful code; or</li>
+          <li>Violates any law or regulation.</li>
+        </ul>
+        <p>We may (but are not required to) review, moderate, restrict, or remove User Content, and may take action against accounts, if we believe content or conduct violates these Terms or is harmful to the Service or others.</p>
 
-    <hr />
-    <p class="muted">
-      Notes: Replace <code>REPLACE_DATE</code> and <code>REPLACE_CONTACT_EMAIL</code>. If you plan a real Play Store launch,
-      you may also want a governing law / venue section.
-    </p>
+        <h3>4.5 Deleting User Content</h3>
+        <p>Where the Service provides deletion controls (for example, to delete a comment):</p>
+        <ul>
+          <li>We will generally remove the content from public view in active systems.</li>
+          <li>Copies may remain for a limited time in backups, logs, or security systems as part of normal operations.</li>
+          <li>We may retain aggregated or de-identified data that cannot reasonably be used to identify you.</li>
+        </ul>
+
+        <h2 id="s5">5. Prohibited Conduct</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Harass, threaten, stalk, or harm others;</li>
+          <li>Impersonate any person or entity or misrepresent affiliation;</li>
+          <li>Attempt to reverse engineer, decompile, or derive source code from the app, except to the extent permitted by law;</li>
+          <li>Circumvent security features or attempt unauthorized access;</li>
+          <li>Use automated means (bots, scrapers, crawlers) to access the Service except as expressly permitted by us.</li>
+        </ul>
+        <p>We may investigate suspected violations and take action, including removing content, restricting features, or suspending/terminating accounts.</p>
+
+        <h2 id="s6">6. Intellectual Property</h2>
+        <p>The Service (excluding User Content) is owned by Tipmana and/or its licensors and is protected by applicable intellectual property laws, including trademarks, trade dress, and copyrights.</p>
+        <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the Service for your personal, non-commercial use in accordance with these Terms. You may not copy, distribute, modify, create derivative works from, publicly display, or exploit any part of the Service except as expressly permitted.</p>
+
+        <h2 id="s7">7. Privacy</h2>
+        <p>Your use of the Service is subject to our Privacy Policy, which explains how we collect, use, and share information. By using the Service, you agree that we may process your information in accordance with our Privacy Policy and these Terms.</p>
+
+        <h2 id="s8">8. Third-Party Services and Advertising</h2>
+        <p>The Service may integrate or interact with third-party services (for example, Google Maps/Places APIs, Firebase services, and Google AdMob). These third parties may have their own terms and privacy policies. Tipmana does not control and is not responsible for third-party services.</p>
+
+        <h2 id="s9">9. Disclaimers</h2>
+        <p>The Service is provided on an “AS IS” and “AS AVAILABLE” basis. To the maximum extent permitted by law:</p>
+        <ul>
+          <li>We do not warrant that the Service will be uninterrupted, secure, or error-free.</li>
+          <li>Business information obtained from third-party sources may be inaccurate or incomplete.</li>
+          <li>User Content reflects the views and experiences of individual users and may be subjective, incomplete, or incorrect.</li>
+        </ul>
+        <p>We disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+        <h2 id="s10">10. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, Tipmana and its owners, officers, employees, and affiliates will not be liable for any indirect, incidental, consequential, special, exemplary, or punitive damages, or any loss of profits, revenue, goodwill, or data, arising out of or related to your use of (or inability to use) the Service.</p>
+        <p>Our total liability for any claim arising out of or relating to the Service or these Terms is limited to the greater of:</p>
+        <ul>
+          <li>The amount you paid to us (if any) in the 12 months before the event giving rise to the claim; or</li>
+          <li>USD $10.</li>
+        </ul>
+        <p>Some jurisdictions do not allow certain limitations. In those cases, these limitations apply to the fullest extent permitted by law.</p>
+
+        <h2 id="s11">11. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Tipmana and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys’ fees) arising out of or related to:</p>
+        <ul>
+          <li>Your use of the Service;</li>
+          <li>Your User Content;</li>
+          <li>Your violation of these Terms or applicable law; or</li>
+          <li>Your infringement or misappropriation of any third-party rights.</li>
+        </ul>
+
+        <h2 id="s12">12. Changes to the Service or Terms</h2>
+        <p>We may update the Service and/or these Terms from time to time. When we update these Terms, we will revise the “Last updated” date at the top and may provide additional notice as required by law.</p>
+        <p>Your continued use of the Service after the updated Terms become effective means you accept the revised Terms. If you disagree, you must stop using the Service.</p>
+
+        <h2 id="s13">13. Termination</h2>
+        <p>We may suspend or terminate your access to the Service at any time if we believe:</p>
+        <ul>
+          <li>You violated these Terms or applicable law;</li>
+          <li>Your conduct is fraudulent, abusive, or harmful; or</li>
+          <li>It is necessary to protect the Service, users, or third parties.</li>
+        </ul>
+        <p>You may stop using the Service at any time. Account deletion requests are handled as described in Section 14.</p>
+        <p>Sections that by their nature should survive termination will survive, including Sections 4 (User Content license to the extent applicable), 6, and 9–16.</p>
+
+        <h2 id="s14">14. Account and Data Deletion</h2>
+        <p>You can request deletion of your account and related personal information by:</p>
+        <ul>
+          <li>Using the in-app account deletion option (where available), or</li>
+          <li>Contacting us at the email address in Section 16 with a clear request.</li>
+        </ul>
+        <p>To protect you, we may verify your identity before processing deletion requests. When we process a valid request, we will:</p>
+        <ul>
+          <li>Disable your account so you can no longer sign in; and</li>
+          <li>Delete or irreversibly anonymize personal information from active systems within a reasonable period, unless retention is required or permitted for legal, security, fraud-prevention, or compliance reasons; and</li>
+          <li>Allow backups to expire or be overwritten in the ordinary course.</li>
+        </ul>
+        <p>We may retain aggregated or de-identified data that cannot reasonably be used to identify you.</p>
+
+        <h2 id="s15">15. Governing Law and Venue</h2>
+        <p>These Terms are governed by the laws of the State of California, without regard to conflict of laws principles.</p>
+        <p>Any dispute arising out of or relating to these Terms or the Service will be brought in the state or federal courts located in California, and you consent to their jurisdiction and venue.</p>
+
+        <h2 id="s16">16. Contact Us</h2>
+        <p>If you have questions about these Terms or the Service, contact us at:</p>
+        <p><span class="label">Tipmana Support</span><br />
+          <span class="label">Email:</span> tipmanaapp@gmail.com<br />
+          <span class="label">App Name:</span> Tipmana
+        </p>
+
+        <hr class="hr" />
+        <p class="toplink"><a href="#top" aria-label="Back to top">↑ Back to top</a></p>
+      </article>
+    </div>
   </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year">2025</span> Tipmana. All rights reserved.</p>
+      <script>
+        // Safe, tiny enhancement: keeps footer year current without altering terms text.
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+    </div>
+  </footer>
 </body>
 </html>
