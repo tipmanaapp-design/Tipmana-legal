@@ -3,26 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TipMana Legal</title>
+  <meta name="color-scheme" content="light dark" />
+  <title>Tipmana – Legal</title>
+  <meta name="description" content="Tipmana legal pages: Privacy Policy and Terms of Service" />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 40px; line-height: 1.5; }
-    .card { max-width: 720px; padding: 24px; border: 1px solid #ddd; border-radius: 12px; }
-    a { display: inline-block; margin-right: 16px; }
+    :root{
+      --bg: #0b0c10;
+      --card: #11131a;
+      --text: #e8eaf0;
+      --muted: #b7bccb;
+      --line: rgba(255,255,255,.12);
+      --link: #8ab4ff;
+      --accent: #7ee787;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 920px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --card:#ffffff;
+        --text:#111827;
+        --muted:#4b5563;
+        --line: rgba(17,24,39,.12);
+        --link:#1d4ed8;
+        --accent:#047857;
+        --shadow: 0 10px 30px rgba(17,24,39,.08);
+      }
+    }
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: radial-gradient(1100px 600px at 18% -10%, rgba(138,180,255,.18), transparent 60%),
+                  radial-gradient(900px 520px at 92% 0%, rgba(126,231,135,.14), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 16px 48px;
+    }
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.4rem);
+      letter-spacing: -0.02em;
+    }
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid{
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 720px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .card h2{
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+    .card p{
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .btn:hover{
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .meta{
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .pill{
+      display: inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      font-family: var(--mono);
+      font-size: .85rem;
+    }
+    footer{
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    @media print{
+      body{ background:#fff; color:#000; }
+      .hero,.card{ box-shadow:none; }
+      a{ color:#000; text-decoration: underline; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>TipMana Legal</h1>
-    <p>Official legal documents for the TipMana app.</p>
-    <p>
-      <a href="./privacy.html">Privacy Policy</a>
-      <a href="./terms.html">Terms of Service</a>
-    </p>
-    <p style="color:#666;font-size:14px;">Last updated: <span id="date"></span></p>
-  </div>
+  <main class="wrap">
+    <section class="hero" aria-label="Tipmana legal pages">
+      <h1>Tipmana – Legal</h1>
+      <p class="sub">
+        Links to Tipmana’s legal documents. These pages are provided for reference and may be updated from time to time.
+      </p>
+
+      <div class="meta" aria-label="Repository notes">
+        <span class="pill">GitHub Pages-ready</span>
+        <span class="pill">U.S.-only • 18+</span>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Legal document links">
+      <div class="card">
+        <h2>Privacy Policy</h2>
+        <p>Tipmana Privacy Policy (United States + California Privacy Notice).</p>
+        <!-- Make sure this filename matches the file you add to your repo -->
+        <a class="btn" href="privacy.html" aria-label="Open Privacy Policy">
+          Open Privacy Policy →
+        </a>
+      </div>
+
+      <div class="card">
+        <h2>Terms of Service</h2>
+        <p>Tipmana Terms of Service for use of the Tipmana app and services.</p>
+        <!-- Make sure this filename matches the file you add to your repo -->
+        <a class="btn" href="terms.html" aria-label="Open Terms of Service">
+          Open Terms of Service →
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year">2025</span> Tipmana. All rights reserved.</p>
+    </footer>
+  </main>
 
   <script>
-    document.getElementById("date").textContent = new Date().toLocaleDateString();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
